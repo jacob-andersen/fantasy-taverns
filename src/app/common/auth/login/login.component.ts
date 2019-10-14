@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-
 @Component({
     templateUrl: './login.component.html',
 })
@@ -25,8 +24,6 @@ export class LoginComponent {
         );
     }
     signup(): void {
-        console.log("SUCCESS!!! YOU CALLED THE Signup function!!!")
-        console.log(this.userName, this.password)
         this.router.navigateByUrl('/signup');
     }
 }
