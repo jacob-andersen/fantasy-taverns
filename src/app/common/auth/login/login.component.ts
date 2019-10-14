@@ -24,4 +24,9 @@ export class LoginComponent {
             },
         );
     }
+    signup(): void {
+        console.log("SUCCESS!!! YOU CALLED THE Signup function!!!")
+        console.log(this.userName, this.password)
+        this.router.navigateByUrl('/signup');
+    }
 }
