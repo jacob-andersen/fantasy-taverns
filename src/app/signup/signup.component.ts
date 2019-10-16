@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 export class SignupComponent {
     userName = '';
     password = '';
+    myRole = '';
 
   constructor(private router: Router)
   {}
