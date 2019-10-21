@@ -12,29 +12,41 @@
   <br />
   <div class="row">
     <div class="col-md-6">
-      <button type="submit" class="btn btn-primary" (click)="signup()">
+      <button type="submit" class="btn btn-primary" (click)="signup(this.userName,this.password)">
         Signup
       </button>
-      <button class="btn btn-primary" routerLink="/login">
+      <button class="btn btn-primary float-right" routerLink="/login">
         Cancel
       </button>
       <br/>
       <br/>
-      <input type="radio" name="colors" value="manager" id="myRole">Manager
-      <div>
-        <!-- Display List of Taverns -->
 
-      </div>
-      <input type="radio" name="colors" value="admin" id="myRole">Admin
-      <div *ngif="" >
-        <!-- Show input field for entering Tavern Name -->
-      </div>
+      <div
+      class="btn-group btn-group-toggle"
+      ngbRadioGroup
+      [(ngModel)]="role"
+      name="role"
+      >
+          <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" value="admin" /> Admin
+          </label>
+          <label ngbButtonLabel class="btn-primary">
+              <input ngbButton type="radio" value="manager" /> Manager
+          </label>
+  </div>
+
+  <div *ngIf="role === 'admin'">
+    <br>
+    <label>Tavern name : </label>
+    <input type="text" [(ngModel)]="myTavern" name="myTavern">
+</div>
+
+<div *ngIf="role === 'manager'">
+    <select (change)="onChange($event.target.value)">
+        <option *ngFor="let i of Taverns">{{i}}</option>
+    </select>
+</div>
       <br />
-      <div *ngif="">
-        <label></label>
-      </div>
-
-
     </div>
   </div>
 </form>
